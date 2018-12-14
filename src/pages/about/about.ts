@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
-
-  constructor(public navCtrl: NavController) {
+  personName: string;
+  constructor(public toastCtrl: ToastController) {
 
   }
-
+  showGreeting(name : string){
+    console.log(name);
+    this.toastCtrl.create({
+      message: "Hello" + name,
+      duration: 3000
+    }).present();
+  }
 }
